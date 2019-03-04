@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1551727428 source:/home/max/Dokumente/Programmieren/Minesweeper/main.cpp
+	<iostream>
+	<vector>
+	<cassert>
+	<random>
+	<algorithm>
+	<chrono>
+
