@@ -11,6 +11,7 @@ class Field
     int m_rows;
     int m_columns;
     int m_noMines;
+    int m_noUnclicked;
     enum Mined
     {
         NOMINE,
@@ -32,6 +33,7 @@ class Field
 public:
     Field(int noMines=10, int rows=8, int columns=8):m_noMines(noMines), m_rows(rows), m_columns(columns)
     {
+        m_noUnclicked=m_rows*m_columns;
         unsigned seed = std::chrono::system_clock::now().time_since_epoch().count(); // do think it would be better to put the seed somewhere else?
         assert(m_rows*m_columns>=m_noMines && "too many mines");
         State defaultState={NOMINE, NOTCLICKED, 0};
@@ -74,6 +76,9 @@ public:
     void printMines();
     void printInteraction();
     void printNoNeighbourMines();
+    void print();
     void setFlagg(int row, int column);
     bool click(int row, int column);
+    const int getNoUnclicked() const;
+    const int getNoMines() const;
 };
